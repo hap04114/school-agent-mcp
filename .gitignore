@@ -1,0 +1,11 @@
+# Secrets — never commit (see CLAUDE.md)
+.env
+token_cache.json
+token.json
+credentials.json
+claude_desktop_config.json
+
+# Python
+venv/
+__pycache__/
+*.pyc

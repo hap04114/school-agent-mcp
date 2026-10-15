@@ -1,0 +1,28 @@
+{
+  "mcp": {
+    "servers": {
+      "canvas": {
+        "command": "/absolute/path/to/school-agent-mcp/venv/bin/python",
+        "args": ["/absolute/path/to/school-agent-mcp/canvas_mcp/server.py"],
+        "transport": "stdio",
+        "env": {
+          "CANVAS_BASE_URL": "https://yourschool.instructure.com",
+          "CANVAS_TOKEN": "your_token_here"
+        }
+      },
+      "outlook": {
+        "command": "/absolute/path/to/school-agent-mcp/venv/bin/python",
+        "args": ["/absolute/path/to/school-agent-mcp/microsoft_mcp/server.py"],
+        "transport": "stdio",
+        "env": {
+          "MS_CLIENT_ID": "your_client_id_here"
+        }
+      },
+      "google-calendar": {
+        "command": "/absolute/path/to/school-agent-mcp/venv/bin/python",
+        "args": ["/absolute/path/to/school-agent-mcp/google_calendar_mcp/server.py"],
+        "transport": "stdio"
+      }
+    }
+  }
+}
