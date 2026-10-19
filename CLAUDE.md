@@ -1,6 +1,6 @@
 # School agent MCP servers
 
-Three MCP servers exposing Canvas, Outlook, and Google Calendar data as
+Four MCP servers exposing Canvas, Outlook, Google Calendar, and Piazza data as
 read-only tools, connectable to Claude Desktop and/or OpenClaw.
 
 ## Structure
@@ -13,7 +13,11 @@ read-only tools, connectable to Claude Desktop and/or OpenClaw.
 - `google_calendar_mcp/server.py` — Google Calendar API. OAuth installed-app
   flow, needs `google_calendar_mcp/credentials.json` (downloaded from Google
   Cloud Console). Token cached to `google_calendar_mcp/token.json`.
-- `requirements.txt` — shared dependencies for all three servers.
+- `piazza_mcp/server.py` — Piazza via the unofficial `piazza-api` package.
+  Auth via `PIAZZA_NETWORK_ID` + `PIAZZA_EMAIL` + `PIAZZA_PASSWORD` in
+  `piazza_mcp/.env`. Library also has write methods (create/delete/update
+  post) — only feed/search are exposed.
+- `requirements.txt` — shared dependencies for all servers.
 - `openclaw_config_example.json` — example config for wiring these into
   OpenClaw instead of / alongside Claude Desktop.
 - `README.md` — full setup instructions for every account/credential needed.
@@ -48,7 +52,9 @@ read-only tools, connectable to Claude Desktop and/or OpenClaw.
       only test user). Testing-mode refresh tokens
       expire after 7 days — on auth errors, delete
       `google_calendar_mcp/token.json` and sign in again.
-- [ ] All three connected in Claude Desktop config and verified working
+- [x] Piazza server tested (2026-10-19; network `mt34kia4t1p1q`,
+      get_recent_posts + search_posts return real posts)
+- [ ] All working servers connected in Claude Desktop config and verified working
 - [ ] (Optional) Wired into OpenClaw for 24/7 + Telegram access
 
 ## When adding features
